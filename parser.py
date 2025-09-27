@@ -22,6 +22,8 @@ class KindleClippingsParser:
         for entry in entries:
             self._parse_entry(entry)
         
+        self._merge_similar_clippings()
+        
         return self
     
     def _parse_entry(self, entry):
@@ -136,6 +138,26 @@ class KindleClippingsParser:
                 print(f"English Datetime Parse Error: {datetime_str} - {e}")
         
         return meta_info
+
+    def _merge_similar_clippings(self):
+        """
+        合并一本书中的重复摘录
+        原则是对相似的笔记，后来者优先，原因是这个文件是往后追加的
+        相似判断方式：可使用 difflib 算相似度，但有更简单的方式，因为只可能连续相似
+        """
+        for book_name, notes in self.books.items():
+            delete_flag = set()
+            for j in range(len(notes)-1, 0, -1):
+                current_note = notes[j]['content']
+                former_note = notes[j - 1]['content']
+                if (former_note in current_note) or (current_note in former_note):
+                    delete_flag.add(j-1)
+            result_notes = list()
+            for i, note in enumerate(notes):
+                if i in delete_flag:
+                    continue
+                result_notes.append(note)
+            self.books[book_name] = result_notes
 
     def export_to_json(self):
         """导出JSON"""

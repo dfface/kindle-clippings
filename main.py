@@ -14,10 +14,10 @@ def main():
 
     # output txt
     converter = KindleClippingsConverter(json_data)
-    converter.generate_chinese_txt()
+    converter.generate_content_txt()
     # you can write your function in converter.py
     # converter.generate_english_txt()
-    # converter.generate_content_txt()
+    # converter.generate_chinese_txt()
 
 if __name__ == "__main__":
     main()

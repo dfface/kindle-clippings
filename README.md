@@ -43,7 +43,7 @@ Three Body
 [page 40, position 375-376, 2025-08-21 06:05:25]
 ```
 
-Or you want establish a website using the parsed JSON data, do it yourself!
+Or you want to establish a website using the parsed JSON data, do it yourself!
 
 ## Usage
 

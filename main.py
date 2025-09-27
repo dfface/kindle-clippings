@@ -17,6 +17,7 @@ def main():
     converter.generate_chinese_txt()
     # you can write your function in converter.py
     # converter.generate_english_txt()
+    # converter.generate_content_txt()
 
 if __name__ == "__main__":
     main()

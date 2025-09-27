@@ -2,6 +2,7 @@ import re
 import json
 from datetime import datetime
 from collections import defaultdict
+from common import Unknown
 
 class KindleClippingsParser:
     def __init__(self):
@@ -74,10 +75,10 @@ class KindleClippingsParser:
         datetime_match = re.search(r'添加于\s*(.+)', line)
         
         meta_info = {
-            'page': page_match.group(1) if page_match else "Unknown",
-            'location': location_match.group(1) if location_match else "Unknown",
-            'date': "Unknown Date",
-            'time': "Unknown Time"
+            'page': page_match.group(1) if page_match else Unknown,
+            'location': location_match.group(1) if location_match else Unknown,
+            'date': Unknown,
+            'time': Unknown
         }
         
         if datetime_match:
@@ -116,10 +117,10 @@ class KindleClippingsParser:
         datetime_match = re.search(r'Added on\s*(.+)', line)
         
         meta_info = {
-            'page': page_match.group(1) if page_match else "Unknown",
-            'location': location_match.group(1) if location_match else "Unknown",
-            'date': "Unknown Date",
-            'time': "Unknown Time"
+            'page': page_match.group(1) if page_match else Unknown,
+            'location': location_match.group(1) if location_match else Unknown,
+            'date': Unknown,
+            'time': Unknown
         }
         
         if datetime_match:

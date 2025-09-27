@@ -1,6 +1,7 @@
-from datetime import datetime
 import os
 import re
+from datetime import datetime
+from common import Unknown
 
 
 class KindleClippingsConverter:
@@ -17,7 +18,7 @@ class KindleClippingsConverter:
         Returns:
             格式化后的日期字符串
         """
-        if date_str == "Unknown Date":
+        if date_str == Unknown:
             return date_str
         
         try:
@@ -41,7 +42,7 @@ class KindleClippingsConverter:
         
         # for each book
         for book_data in self.json_data:
-            book_name = book_data.get("book_name", "Unknown Book")
+            book_name = book_data.get("book_name", Unknown)
             clippings = book_data.get("clippings", [])
             
             # generate safe file name
@@ -59,14 +60,14 @@ class KindleClippingsConverter:
                 for i, clipping in enumerate(clippings, 1):
                     id = clipping.get("id", i)
                     content = clipping.get("content", "")
-                    page = clipping.get("page", "Unknown")
-                    location = clipping.get("location", "Unknown")
-                    date = clipping.get("date", "Unknown Date")
-                    time = clipping.get("time", "Unknown Time")
+                    page = clipping.get("page", Unknown)
+                    location = clipping.get("location", Unknown)
+                    date = clipping.get("date", Unknown)
+                    time = clipping.get("time", Unknown)
                     
                     format_clipping = self._format_each_clipping(id=id, content=content, page=page, location=location, date=date, time=time, date_format_template=date_format_template, clipping_format_template=clipping_format_template)
                     # write formatted clipping
-                    if page == "Unknown":
+                    if page == Unknown:
                         format_clipping = self._format_each_clipping(id=id, content=content, page=page, location=location, date=date, time=time, date_format_template=date_format_template, clipping_format_template=clipping_format_template_without_page)
                     f.write(format_clipping)
             

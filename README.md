@@ -67,10 +67,10 @@ def main():
 
     # parse to JSON
     parser = KindleClippingsParser()
-    parsed = parser.parse_file(clippings_file)
-    json_data = parsed.export_to_json()
+    parser.parse_file(clippings_file)
+    json_data = parser.export_to_json()
     # or you want a json file
-    # parsed.export_to_json_file()
+    # parser.export_to_json_file()
 
     # output txt
     converter = KindleClippingsConverter(json_data)

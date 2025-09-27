@@ -19,7 +19,7 @@ Parse "My Clippings.txt" (now support Chinese and English of Kindle) to JSON lik
       },
       {
         "id": 2,
-        "content": "I really like it",
+        "content": "I know it",
         "page": "40",
         "location": "375-376",
         "date": "2025-08-21",
@@ -39,11 +39,13 @@ Three Body
 1. I really like it
 [page 37, position 347-348, 2025-08-21 06:02:11]
 
-1. I really like it
+2. I know it
 [page 40, position 375-376, 2025-08-21 06:05:25]
 ```
 
-Or you want to establish a website using the parsed JSON data, do it yourself!
+Note that consecutive similar clippings will be merged.
+
+If you want to establish a website using the parsed JSON data, do it yourself!
 
 ## Usage
 

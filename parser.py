@@ -186,26 +186,7 @@ class KindleClippingsParser:
     
     def export_to_json_file(self, output_file="kindle_clippings.json"):
         """导出为JSON文件，格式符合要求"""
-        result = []
-        
-        for book_title, notes in self.books.items():
-            book_data = {
-                "book_name": book_title,
-                "clippings": []
-            }
-            
-            for i, note in enumerate(notes, 1):
-                clipping_data = {
-                    "id": i,
-                    "content": note['content'],
-                    "page": note['page'],
-                    "location": note['location'],
-                    "date": note['date'],
-                    "time": note['time']
-                }
-                book_data["clippings"].append(clipping_data)
-            
-            result.append(book_data)
+        result = self.export_to_json()
         
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(result, f, ensure_ascii=False, indent=2)

@@ -47,7 +47,7 @@ Or you want establish a website using the parsed JSON data, do it yourself!
 
 ## Usage
 
-Put "My Clipping.txt" in the same python of the program, then run:
+Put "My Clipping.txt" in the same path of the program, then run:
 
 ```bash
 python3 main.py

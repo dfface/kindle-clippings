@@ -83,5 +83,5 @@ class KindleClippingsConverter:
     
     def generate_chinese_txt(self, output_dir="output"):
         self.generate_txt_file_for_each_book(output_dir=output_dir, date_format_template="%Y年%m月%d日", 
-                                             clipping_format_template="{id}. {content}\n（第{page}页，{location}位置，{formatted_date} {time}）\n\n",
-                                             clipping_format_template_without_page="{id}. {content}\n（{location}位置，{formatted_date} {time}）\n\n")
+                                             clipping_format_template="{id}. {content}\n（第{page}页，位置{location}，{formatted_date} {time}）\n\n",
+                                             clipping_format_template_without_page="{id}. {content}\n（位置{location}，{formatted_date} {time}）\n\n")

@@ -30,7 +30,7 @@ Parse "My Clippings.txt" (now support Chinese and English of Kindle) to JSON lik
 ]
 ```
 
-Convert to your custom format by yourself, for example:
+Convert to your custom format, for example:
 
 ```txt
 Three Body
